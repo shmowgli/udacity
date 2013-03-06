@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="/stylesheets/blog.css">
+  </head>
+  <body>
+  	<span class="header_idx">
+  	Welcome {{Title}}{{User}} !!
+  	</span>
+  </body>
+  </html>

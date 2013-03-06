@@ -1,0 +1,28 @@
+html {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 1% 0%;
+}
+ul {
+  list-style: none;
+}
+.lleft {
+  font-size: 1.2em;
+}
+.lright {
+  font-size: 0.75em;
+  float: right;
+}
+.header_idx {
+  font-size: 1.5em;
+  text-align: center;
+  clear: both;
+  padding: 3%;
+}
+.text_post {
+  padding: 2%;
+}

@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+# Build and Release Folders
+*~
+bin/
+bin-debug/
+bin-release/
+node_modules/
+# Other files and folders
+.settings/
+*swp
+*png
+*ogg
+config.json
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>{{ title }} </title>
+    	<link type="text/css" rel="stylesheet" href="/stylesheets/blog.css"/>
+	</head>
+   <body id="a_body">
+    <div class="wrapper" style="max-width: 800px;">
+        <p class='greeting'>
+	<small>
+	<a href='/_history/{{articles.title}}'>history</a>
+        </small> 
+	 <small>
+           <a href="/{{mode.mode}}"> | {{mode.mode}}</a>
+	       - {{mode.getName}}
+        </small>
+        </p>
+    <header><h1>{{title}}</h1></header>
+        <hr>
+	<div>
+	<form method ="{{mode.method}}">
+	<p>
+	<textarea name='content' rows="10" cols="50" wrap="hard"
+	value = "{{article.content}}" > 
+	<textarea name='content' rows="10" cols="50" wrap="hard">
+	{{article.content}}
+	</textarea>
+	</p>
+        <input type="submit" name="Submit" value="Save"/>
+	</div>
+	</form>
+        <footer>
+          <p><small> footer </small>
+	  </p>
+        </footer>
+    </div>
+   </body>
+</html>

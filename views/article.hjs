@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {{ title }} </title>
+    <link rel='stylesheet' href='/stylesheets/newpost.css' />
+</head>
+ <body>
+  <div>
+	<div class = "nav">
+<!--		<a href = "/_edit/{{article.title}}">
+	   	<button name="edit_bt">{{ title }}</button>
+		</a> --->
+		<p> {{title}}</p>
+		<a href = "/{{mode.mode}}">
+	  	<button>{{mode.mode}}</button>
+		</a> 
+	</div> 
+	<form method="post">
+	<div>
+		<label> Subject <br>
+		<input type="text" name= 'title' value={{article.title}} />
+		</label>
+	</div>
+	<div>
+		<label> Content <br>
+		<textarea name='content' rows="10" cols="50" wrap="hard">{{article.content}}
+		</textarea>
+		</label>
+	</div>
+	<div>
+		<input type="submit" name="Submit" value={{mode.edit}}>
+	</div>
+	{{ error }}
+  </div>
+	</form>
+ </body>
+</html>
