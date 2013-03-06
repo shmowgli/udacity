@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="/stylesheets/blog.css">
+  </head>
+  <body>
+    <div>
+    <form method="post" action="/signup">
+      <body>
+        <table>
+          <colgroup span="3" class="columns"></colgroup>
+          <tr>
+            <th>Signup</th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td>Username </td>
+            <td> 
+              <input type="text" name="username" value={{username}}>
+            </td>
+                <td><font color="red">
+                <label>{{ Errors.username }}</label></font></td>
+          </tr>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>
+              <input type="password" name="password" value={{password}}>
+            </td>
+                <td><font color="red">
+                <label>{{ Errors.password }}</label></font></t            
+          </tr>
+          <tr>
+            <td>Verify Password</td>
+            <td>
+              <input type="password" name="verify" value={{verify}}>
+            </td>
+                <td><font color="red">
+                <label>{{ Errors.verify }}</label></font></td>
+          </tr>
+          <tr>
+            <td>Email (optional)</td>
+            <td>
+              <input type="text" name="email" value={{email}}>
+            </td>
+                <td><font color="red">
+                <label>{{ Errors.email }}</label></font></td>
+          </tr>
+        </table>
+      </body>
+      <input type="submit" value="Submit">
+    </form>
+    </div>
+          <div>
+            <table>
+              {{#Errors}}
+                <tr><td>{{.}}</td></tr>
+              {{/Errors}}
+            </table>
+          </div>    
+  </body>
+</html>

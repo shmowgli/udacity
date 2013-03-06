@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {{ title }} </title>
+    <link rel='stylesheet' href='/stylesheets/blog.css' />
+</head>
+<body>
+	<div class= "nav-bt">
+	<a href = /{{mode.mode}}>
+	   <button>{{mode.mode}}</button>
+	</a>
+	</div>
+	<div class="header_idx">
+		<h2>   
+			<a href="/" title={{ title }}>Welcome  {{ mode.getName }}</a>
+		</h2>
+	</div>
+
+	<div class="posts">
+
+		{{#articles}}
+			<span class ='lleft'> 
+				<a href='{{ title }}'> {{ title }} </a>
+			</span>
+			<span class ='lright'> 
+				<a href='{{ title }}'> {{ updated }} </a>
+			</span>
+			<hr>
+	<!--		<div class='text_post'>
+				<pre>{{ content }}</pre>
+			</div>	
+	-->
+		{{/articles}}
+
+	</div>	
+
+
+</body>
+</html>
