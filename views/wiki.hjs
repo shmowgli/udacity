@@ -9,14 +9,13 @@
         <p class='greeting'>
 	<small>
 		<a href='/_edit/{{article.title}}'>{{mode.edit}}</a> |<a href='/_history/{{article.title}}'>history</a>
-		<a href='/_edit/{{articles.title}}'>{{mode.edit}}</a> |<a href='/_history/{{articles.title}}'>history</a>
         </small> 
 	 <small>
            <a href="/{{mode.mode}}"> | {{mode.mode}}</a>
 	       - {{mode.getName}}
         </small>
         </p>
-    <header><h1>{{title}}</h1></header>
+    <header><h1>{{title}}: {{article.title}}</h1></header>
        <!-- <nav>
             <ol>
             <li><a href="/">Main Page</a></li>
@@ -26,7 +25,6 @@
         </nav> -->
         <hr>
         <h id="content"><pre> {{{article.content}}} </pre>
-        <h id="content"><pre> {{articles.content}} </pre>
 	</h>
 
         <footer>

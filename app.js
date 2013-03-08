@@ -32,7 +32,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', articles.index);
+app.get('/', articles.home);
 
 app.get('/signup', user.signupGet);
 app.post('/signup', user.signupPost);
@@ -42,7 +42,10 @@ app.all('/signin', user.signinPost);
 app.get('/login', user.signinGet);
 app.post('/login', user.signinPost);
 app.get('/logout', user.signout);
-
+//app.get('/_edit',articles.editMain);
+//app.post('/_edit',articles.saveMain);
+app.get('/_edit', articles.edit);
+app.post('/_edit', articles.save);
 app.get('/_edit/:article', articles.edit);
 app.post('/_edit/:article', articles.save);
 app.put('/_edit/:article', articles.save);

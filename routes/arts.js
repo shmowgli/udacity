@@ -15,7 +15,7 @@ var makeArticle = function(id, title, content, author, updated){
                 this.updated = updated || new Date();
 }
 
- tempArticles.push(new makeArticle(0, 'Main page', 'Main page text', 'author'));
+ tempArticles.push(new makeArticle(0, '', 'Main page text', 'author'));
 for (var i=1; i <11; i+=1){
 	tempArticles.push(new makeArticle(
 			i,
@@ -38,30 +38,26 @@ function userMode(req,res){
 	this.edit = current ? "Edit":"";
 	this.method = "POST";
 }
-exports.home = function(req,res){
+exports.index = function(req,res){
     var mode = new userMode(req,res); 
     res.render('wiki',{title: 'Welcome', article: tempArticles[0], mode: mode}); 
 }
 exports.article = function(req,res){
-  var id = req.params.article ? findArticle(req.params.article):0;
-  var mode = new userMode(req,res);
-    if (id){ res.render('wiki',{title: 'View',
-			 article:  tempArticles[id], mode: mode});}
-    else{
-	if (id===0){ res.redirect('/');}
-	else 
-	{ res.redirect('/_edit/'+ req.params.article);}
-    }
+    var id = findArticle(req.params.article);
+	console.log(req.params.article);
+    var mode = new userMode(req,res);
+    if (id) res.render('wiki',{title: 'View',
+			 article:  tempArticles[id], mode: mode});
+    else res.redirect('/_edit/'+ req.params.article);
 }
-
 exports.edit = function(req,res){
     var path = req.params.article;
-	console.log('editing --------->' +  path);
+	console.log('editing --------->' + path);
 	mode = new userMode(req,res);
 	var acc = mode.getName();	
    if (!acc) res.redirect('signin');
    else {
-   if (!path){//main page
+   if (req.params.article==='_edit'){//main page
 	var article = new makeArticle(0,'',tempArticles[0].content,
 			acc,new Date());
         res.render('edit',{title: 'Edit', article: article, mode: mode}); 
@@ -86,7 +82,7 @@ exports.edit = function(req,res){
 			new Date());
 	console.log(article);
     //mode.method="PUT";
-    //mode.method="POST";
+    mode.method="POST";
     res.render('edit',{title: 'Edit', article: article, mode: mode});
    }
   } 
@@ -97,7 +93,6 @@ exports.save= function(req,res){
   var mode = new userMode(req,res);
   var acc = mode.getName();
   var article ={};
-  var title ='';
   if(!id) {     article = new makeArticle(
 		tempArticles.length + 1,
 		req.params.article,
@@ -112,9 +107,5 @@ exports.save= function(req,res){
                 tempArticles[id].updated=new Date();
         }
 	article=article.title? article: tempArticles[id];
-	console.log(article);
-	console.log('-----------------');
-	if (article.id===0) title = '';
-		else title = article.title;
-	res.redirect('/' + title );
+	res.redirect('/' + article.title);
 }
